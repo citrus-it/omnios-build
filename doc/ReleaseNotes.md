@@ -3,7 +3,8 @@
 </a>
 
 # Release Notes for OmniOSce v11 r151046
-![#f03c15](https://placehold.it/15/f03c15/000000?text=+) ** These are DRAFT release notes ** ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)
+
+## $\color{red}{These\ are\ DRAFT\ release\ notes}$
 
 Stable Release, TBC of May 2023
 
