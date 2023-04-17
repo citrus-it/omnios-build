@@ -4,7 +4,7 @@
 
 # Release Notes for OmniOSce v11 r151046
 
-## $\color{red}{These\ are\ DRAFT\ release\ notes}$
+## $\color{red}{\text{These are DRAFT release notes}}$
 
 Stable Release, TBC of May 2023
 
