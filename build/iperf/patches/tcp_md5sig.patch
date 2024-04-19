@@ -1,0 +1,214 @@
+From 4b475562c590a6ecf6250964afe97a2911a9baaa Mon Sep 17 00:00:00 2001
+From: Andy Fiddaman <illumos@fiddaman.net>
+Date: Fri, 19 Apr 2024 12:59:57 +0000
+Subject: [PATCH] Add option to enable TCP_MD5SIG for tests
+
+---
+ src/iperf.h        |  1 +
+ src/iperf_api.c    | 10 +++++++++-
+ src/iperf_api.h    |  1 +
+ src/iperf_error.c  |  4 ++++
+ src/iperf_locale.c |  6 ++++++
+ src/iperf_tcp.c    | 29 ++++++++++++++++++++++++++++-
+ src/net.c          | 12 +++++++++++-
+ src/net.h          |  2 +-
+ 8 files changed, 61 insertions(+), 4 deletions(-)
+
+diff --git a/src/iperf.h b/src/iperf.h
+index 8ff25d7..e7a30af 100755
+--- a/src/iperf.h
++++ b/src/iperf.h
+@@ -233,6 +233,7 @@ struct iperf_test
+     int       daemon;                           /* -D option */
+     int       one_off;                          /* -1 option */
+     int       no_delay;                         /* -N option */
++    int       md5sig;                           /* -5 option */
+     int       reverse;                          /* -R option */
+     int	      verbose;                          /* -V option - verbose mode */
+     int	      json_output;                      /* -J option - JSON output */
+diff --git a/src/iperf_api.c b/src/iperf_api.c
+index 5b56af6..d4e016c 100755
+--- a/src/iperf_api.c
++++ b/src/iperf_api.c
+@@ -641,6 +641,9 @@ iperf_parse_arguments(struct iperf_test *test, int argc, char **argv)
+         {"cport", required_argument, NULL, OPT_CLIENT_PORT},
+         {"set-mss", required_argument, NULL, 'M'},
+         {"no-delay", no_argument, NULL, 'N'},
++#ifdef TCP_MD5SIG
++        {"md5sig", no_argument, NULL, '5'},
++#endif
+         {"version4", no_argument, NULL, '4'},
+         {"version6", no_argument, NULL, '6'},
+         {"tos", required_argument, NULL, 'S'},
+@@ -684,7 +687,7 @@ iperf_parse_arguments(struct iperf_test *test, int argc, char **argv)
+ 
+     blksize = 0;
+     server_flag = client_flag = rate_flag = duration_flag = 0;
+-    while ((flag = getopt_long(argc, argv, "p:f:i:D1VJvsc:ub:t:n:k:l:P:Rw:B:M:N46S:L:ZO:F:A:T:C:dI:hX:", longopts, NULL)) != -1) {
++    while ((flag = getopt_long(argc, argv, "p:f:i:D1VJvsc:ub:t:n:k:l:P:Rw:B:M:N456S:L:ZO:F:A:T:C:dI:hX:", longopts, NULL)) != -1) {
+         switch (flag) {
+             case 'p':
+                 test->server_port = atoi(optarg);
+@@ -828,6 +831,11 @@ iperf_parse_arguments(struct iperf_test *test, int argc, char **argv)
+                 }
+ 		client_flag = 1;
+                 break;
++#ifdef TCP_MD5SIG
++            case '5':
++                test->md5sig = 1;
++                break;
++#endif
+             case 'N':
+                 test->no_delay = 1;
+ 		client_flag = 1;
+diff --git a/src/iperf_api.h b/src/iperf_api.h
+index 0f153fe..5b29558 100755
+--- a/src/iperf_api.h
++++ b/src/iperf_api.h
+@@ -315,6 +315,7 @@ enum {
+     IESERVERTERM = 120,     // The server has terminated
+     IEACCESSDENIED = 121,   // The server is busy running a test. Try again later.
+     IESETNODELAY = 122,     // Unable to set TCP/SCTP NODELAY (check perror)
++    IESETMD5SIG = 801,      // Unable to set TCP MD5SIG (check perror)
+     IESETMSS = 123,         // Unable to set TCP/SCTP MSS (check perror)
+     IESETBUF = 124,         // Unable to set socket buffer size (check perror)
+     IESETTOS = 125,         // Unable to set IP TOS (check perror)
+diff --git a/src/iperf_error.c b/src/iperf_error.c
+index a64c212..5150541 100644
+--- a/src/iperf_error.c
++++ b/src/iperf_error.c
+@@ -248,6 +248,10 @@ iperf_strerror(int i_errno)
+             snprintf(errstr, len, "unable to set TCP/SCTP NODELAY");
+             perr = 1;
+             break;
++        case IESETMD5SIG:
++            snprintf(errstr, len, "unable to set TCP MD5SIG");
++            perr = 1;
++            break;
+         case IESETMSS:
+             snprintf(errstr, len, "unable to set TCP/SCTP MSS");
+             perr = 1;
+diff --git a/src/iperf_locale.c b/src/iperf_locale.c
+index 51cd40b..c395363 100644
+--- a/src/iperf_locale.c
++++ b/src/iperf_locale.c
+@@ -79,6 +79,9 @@
+  * ------------------------------------------------------------------- */
+ #include "iperf_config.h"
+ 
++#include <netinet/in.h>
++#include <netinet/tcp.h>
++
+ #include "version.h"
+ 
+ #ifdef __cplusplus
+@@ -141,6 +144,9 @@ const char usage_longstr[] = "Usage: iperf [-s|-c host] [options]\n"
+ #endif /* HAVE_TCP_CONGESTION */
+                            "  -M, --set-mss   #         set TCP/SCTP maximum segment size (MTU - 40 bytes)\n"
+                            "  -N, --no-delay            set TCP/SCTP no delay, disabling Nagle's Algorithm\n"
++#ifdef TCP_MD5SIG
++                           "  -5, --md5sig              set TCP MD5 signature option\n"
++#endif
+                            "  -4, --version4            only use IPv4\n"
+                            "  -6, --version6            only use IPv6\n"
+                            "  -S, --tos N               set the IP 'type of service'\n"
+diff --git a/src/iperf_tcp.c b/src/iperf_tcp.c
+index ac3b392..f49a946 100644
+--- a/src/iperf_tcp.c
++++ b/src/iperf_tcp.c
+@@ -152,7 +152,8 @@ iperf_tcp_listen(struct iperf_test *test)
+      *
+      * It's not clear whether this is a requirement or a convenience.
+      */
+-    if (test->no_delay || test->settings->mss || test->settings->socket_bufsize) {
++    if (test->no_delay || test->settings->mss || test->md5sig ||
++	test->settings->socket_bufsize) {
+         FD_CLR(s, &test->read_set);
+         close(s);
+ 
+@@ -194,6 +195,19 @@ iperf_tcp_listen(struct iperf_test *test)
+                 return -1;
+             }
+         }
++#ifdef TCP_MD5SIG
++        if (test->md5sig) {
++            opt = 1;
++            if (setsockopt(s, IPPROTO_TCP, TCP_MD5SIG, &opt, sizeof(opt)) < 0) {
++		saved_errno = errno;
++		close(s);
++		freeaddrinfo(res);
++		errno = saved_errno;
++                i_errno = IESETMD5SIG;
++                return -1;
++            }
++        }
++#endif
+         // XXX: Setting MSS is very buggy!
+         if ((opt = test->settings->mss)) {
+             if (setsockopt(s, IPPROTO_TCP, TCP_MAXSEG, &opt, sizeof(opt)) < 0) {
+@@ -388,6 +402,19 @@ iperf_tcp_connect(struct iperf_test *test)
+             return -1;
+         }
+     }
++#ifdef TCP_MD5SIG
++    if (test->md5sig) {
++        opt = 1;
++        if (setsockopt(s, IPPROTO_TCP, TCP_MD5SIG, &opt, sizeof(opt)) < 0) {
++	    saved_errno = errno;
++	    close(s);
++	    freeaddrinfo(server_res);
++	    errno = saved_errno;
++            i_errno = IESETNODELAY;
++            return -1;
++        }
++    }
++#endif
+     if ((opt = test->settings->mss)) {
+         if (setsockopt(s, IPPROTO_TCP, TCP_MAXSEG, &opt, sizeof(opt)) < 0) {
+ 	    saved_errno = errno;
+diff --git a/src/net.c b/src/net.c
+index aa4a15c..75fde4d 100644
+--- a/src/net.c
++++ b/src/net.c
+@@ -386,7 +386,7 @@ getsock_tcp_mss(int inSock)
+ // XXX: This function is not being used.
+ 
+ int
+-set_tcp_options(int sock, int no_delay, int mss)
++set_tcp_options(int sock, int no_delay, int mss, int md5sig)
+ {
+     socklen_t len;
+     int rc;
+@@ -424,6 +424,16 @@ set_tcp_options(int sock, int no_delay, int mss)
+             return -1;
+         }
+     }
++#endif
++#ifdef TCP_MD5SIG
++    if (md5sig == 1) {
++        len = sizeof(md5sig);
++        rc = setsockopt(sock, IPPROTO_TCP, TCP_MD5SIG, (char *)&md5sig, len);
++        if (rc == -1) {
++            perror("setsockopt TCP_MD5SIG");
++            return -1;
++        }
++    }
+ #endif
+     return 0;
+ }
+diff --git a/src/net.h b/src/net.h
+index 543365c..dee5bdc 100644
+--- a/src/net.h
++++ b/src/net.h
+@@ -34,7 +34,7 @@ int Nwrite(int fd, const char *buf, size_t count, int prot) /* __attribute__((ho
+ int has_sendfile(void);
+ int Nsendfile(int fromfd, int tofd, const char *buf, size_t count) /* __attribute__((hot)) */;
+ int getsock_tcp_mss(int inSock);
+-int set_tcp_options(int sock, int no_delay, int mss);
++int set_tcp_options(int sock, int no_delay, int mss, int md5sig);
+ int setnonblocking(int fd, int nonblocking);
+ int getsockdomain(int sock);
+ 
+-- 
+2.44.0
+
