@@ -1,0 +1,333 @@
+== Tests result: FAILURE ==
+
+1 test failed:
+    test_dtrace
+
+0:00:04 load avg: 0.03 Re-running 1 failed tests in verbose mode in subprocesses
+0:00:04 load avg: 0.03 Run 1 test in parallel using 1 worker process (timeout: 10 min, worker timeout: 15 min)
+0:00:08 load avg: 0.08 [1/1/1] test_dtrace failed (13 failures)
+Re-running test_dtrace in verbose mode (matching: test_check_probes, test_check_probes, test_check_probes, test_check_probes, test_check_probes, test_function_entry_return, test_gc, test_line, test_verify_call_opcodes, test_function_entry_return, test_gc, test_line, test_verify_call_opcodes)
+readelf version: 2.45
+test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) ... 
+  test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: import__find__load__done') ... FAIL
+  test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: import__find__load__start') ... FAIL
+  test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: audit') ... FAIL
+  test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: gc__start') ... FAIL
+  test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: gc__done') ... FAIL
+test_function_entry_return (test.test_dtrace.DTraceNormalTests.test_function_entry_return) ... FAIL
+test_gc (test.test_dtrace.DTraceNormalTests.test_gc) ... FAIL
+test_line (test.test_dtrace.DTraceNormalTests.test_line) ... FAIL
+test_verify_call_opcodes (test.test_dtrace.DTraceNormalTests.test_verify_call_opcodes)
+Ensure our call stack test hits all function call opcodes ... FAIL
+test_function_entry_return (test.test_dtrace.DTraceOptimizedTests.test_function_entry_return) ... FAIL
+test_gc (test.test_dtrace.DTraceOptimizedTests.test_gc) ... FAIL
+test_line (test.test_dtrace.DTraceOptimizedTests.test_line) ... FAIL
+test_verify_call_opcodes (test.test_dtrace.DTraceOptimizedTests.test_verify_call_opcodes)
+Ensure our call stack test hits all function call opcodes ... FAIL
+setUpClass (test.test_dtrace.SystemTapNormalTests) ... skipped "stap(1) failed: [Errno 2] No such file or directory: 'stap'"
+setUpClass (test.test_dtrace.SystemTapOptimizedTests) ... skipped "stap(1) failed: [Errno 2] No such file or directory: 'stap'"
+
+======================================================================
+FAIL: test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: import__find__load__done')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 241, in test_check_probes
+    self.assertIn(probe_name, readelf_output)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Name: import__find__load__done' not found in ''
+
+======================================================================
+FAIL: test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: import__find__load__start')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 241, in test_check_probes
+    self.assertIn(probe_name, readelf_output)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Name: import__find__load__start' not found in ''
+
+======================================================================
+FAIL: test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: audit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 241, in test_check_probes
+    self.assertIn(probe_name, readelf_output)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Name: audit' not found in ''
+
+======================================================================
+FAIL: test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: gc__start')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 241, in test_check_probes
+    self.assertIn(probe_name, readelf_output)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Name: gc__start' not found in ''
+
+======================================================================
+FAIL: test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: gc__done')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 241, in test_check_probes
+    self.assertIn(probe_name, readelf_output)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Name: gc__done' not found in ''
+
+======================================================================
+FAIL: test_function_entry_return (test.test_dtrace.DTraceNormalTests.test_function_entry_return)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 38, in normalize_trace_output
+    result.sort(key=lambda row: int(row[0]))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 38, in <lambda>
+    result.sort(key=lambda row: int(row[0]))
+                                ~~~^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'dtrace: failed to compile script /data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/dtracedata/call_stack.d: line 3: probe description python26911:::function-entry does n
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 124, in test_function_entry_return
+    self.run_case("call_stack")
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 119, in run_case
+    actual_output, expected_output = self.backend.run_case(
+                                     ~~~~~~~~~~~~~~~~~~~~~^
+        name, optimize_python=self.optimize_python)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 53, in run_case
+    actual_output = normalize_trace_output(self.trace_python(
+        script_file=abspath(name + self.EXTENSION),
+        python_file=abspath(name + ".py"),
+        optimize_python=optimize_python))
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 42, in normalize_trace_output
+    raise AssertionError(
+        "tracer produced unparsable output:\n{}".format(output)
+    )
+AssertionError: tracer produced unparsable output:
+dtrace: failed to compile script /data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/dtracedata/call_stack.d: line 3: probe description python26911:::function-entry does not match any probes
+
+
+======================================================================
+FAIL: test_gc (test.test_dtrace.DTraceNormalTests.test_gc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 38, in normalize_trace_output
+    result.sort(key=lambda row: int(row[0]))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 38, in <lambda>
+    result.sort(key=lambda row: int(row[0]))
+                                ~~~^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'dtrace: failed to compile script /data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/dtracedata/gc.d: line 1: probe description python26913:::function-entry does not match
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 152, in test_gc
+    self.run_case("gc")
+    ~~~~~~~~~~~~~^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 119, in run_case
+    actual_output, expected_output = self.backend.run_case(
+                                     ~~~~~~~~~~~~~~~~~~~~~^
+        name, optimize_python=self.optimize_python)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 53, in run_case
+    actual_output = normalize_trace_output(self.trace_python(
+        script_file=abspath(name + self.EXTENSION),
+        python_file=abspath(name + ".py"),
+        optimize_python=optimize_python))
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 42, in normalize_trace_output
+    raise AssertionError(
+        "tracer produced unparsable output:\n{}".format(output)
+    )
+AssertionError: tracer produced unparsable output:
+dtrace: failed to compile script /data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/dtracedata/gc.d: line 1: probe description python26913:::function-entry does not match any probes
+
+
+======================================================================
+FAIL: test_line (test.test_dtrace.DTraceNormalTests.test_line)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 38, in normalize_trace_output
+    result.sort(key=lambda row: int(row[0]))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 38, in <lambda>
+    result.sort(key=lambda row: int(row[0]))
+                                ~~~^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'dtrace: failed to compile script /data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/dtracedata/line.d: line 1: probe description python26915:::line does not match any pro
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 155, in test_line
+    self.run_case("line")
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 119, in run_case
+    actual_output, expected_output = self.backend.run_case(
+                                     ~~~~~~~~~~~~~~~~~~~~~^
+        name, optimize_python=self.optimize_python)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 53, in run_case
+    actual_output = normalize_trace_output(self.trace_python(
+        script_file=abspath(name + self.EXTENSION),
+        python_file=abspath(name + ".py"),
+        optimize_python=optimize_python))
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 42, in normalize_trace_output
+    raise AssertionError(
+        "tracer produced unparsable output:\n{}".format(output)
+    )
+AssertionError: tracer produced unparsable output:
+dtrace: failed to compile script /data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/dtracedata/line.d: line 1: probe description python26915:::line does not match any probes
+
+
+======================================================================
+FAIL: test_verify_call_opcodes (test.test_dtrace.DTraceNormalTests.test_verify_call_opcodes)
+Ensure our call stack test hits all function call opcodes
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 149, in test_verify_call_opcodes
+    self.assertEqual(set(), opcodes)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: Items in the second set but not the first:
+'CALL_FUNCTION'
+'CALL_FUNCTION_KW'
+
+======================================================================
+FAIL: test_function_entry_return (test.test_dtrace.DTraceOptimizedTests.test_function_entry_return)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 38, in normalize_trace_output
+    result.sort(key=lambda row: int(row[0]))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 38, in <lambda>
+    result.sort(key=lambda row: int(row[0]))
+                                ~~~^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'dtrace: failed to compile script /data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/dtracedata/call_stack.d: line 3: probe description python26918:::function-entry does n
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 124, in test_function_entry_return
+    self.run_case("call_stack")
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 119, in run_case
+    actual_output, expected_output = self.backend.run_case(
+                                     ~~~~~~~~~~~~~~~~~~~~~^
+        name, optimize_python=self.optimize_python)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 53, in run_case
+    actual_output = normalize_trace_output(self.trace_python(
+        script_file=abspath(name + self.EXTENSION),
+        python_file=abspath(name + ".py"),
+        optimize_python=optimize_python))
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 42, in normalize_trace_output
+    raise AssertionError(
+        "tracer produced unparsable output:\n{}".format(output)
+    )
+AssertionError: tracer produced unparsable output:
+dtrace: failed to compile script /data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/dtracedata/call_stack.d: line 3: probe description python26918:::function-entry does not match any probes
+
+
+======================================================================
+FAIL: test_gc (test.test_dtrace.DTraceOptimizedTests.test_gc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 38, in normalize_trace_output
+    result.sort(key=lambda row: int(row[0]))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 38, in <lambda>
+    result.sort(key=lambda row: int(row[0]))
+                                ~~~^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'dtrace: failed to compile script /data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/dtracedata/gc.d: line 1: probe description python26920:::function-entry does not match
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 152, in test_gc
+    self.run_case("gc")
+    ~~~~~~~~~~~~~^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 119, in run_case
+    actual_output, expected_output = self.backend.run_case(
+                                     ~~~~~~~~~~~~~~~~~~~~~^
+        name, optimize_python=self.optimize_python)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 53, in run_case
+    actual_output = normalize_trace_output(self.trace_python(
+        script_file=abspath(name + self.EXTENSION),
+        python_file=abspath(name + ".py"),
+        optimize_python=optimize_python))
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 42, in normalize_trace_output
+    raise AssertionError(
+        "tracer produced unparsable output:\n{}".format(output)
+    )
+AssertionError: tracer produced unparsable output:
+dtrace: failed to compile script /data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/dtracedata/gc.d: line 1: probe description python26920:::function-entry does not match any probes
+
+
+======================================================================
+FAIL: test_line (test.test_dtrace.DTraceOptimizedTests.test_line)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 38, in normalize_trace_output
+    result.sort(key=lambda row: int(row[0]))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 38, in <lambda>
+    result.sort(key=lambda row: int(row[0]))
+                                ~~~^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'dtrace: failed to compile script /data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/dtracedata/line.d: line 1: probe description python26922:::line does not match any pro
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 155, in test_line
+    self.run_case("line")
+    ~~~~~~~~~~~~~^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 119, in run_case
+    actual_output, expected_output = self.backend.run_case(
+                                     ~~~~~~~~~~~~~~~~~~~~~^
+        name, optimize_python=self.optimize_python)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 53, in run_case
+    actual_output = normalize_trace_output(self.trace_python(
+        script_file=abspath(name + self.EXTENSION),
+        python_file=abspath(name + ".py"),
+        optimize_python=optimize_python))
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 42, in normalize_trace_output
+    raise AssertionError(
+        "tracer produced unparsable output:\n{}".format(output)
+    )
+AssertionError: tracer produced unparsable output:
+dtrace: failed to compile script /data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/dtracedata/line.d: line 1: probe description python26922:::line does not match any probes
+
+
+======================================================================
+FAIL: test_verify_call_opcodes (test.test_dtrace.DTraceOptimizedTests.test_verify_call_opcodes)
+Ensure our call stack test hits all function call opcodes
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 149, in test_verify_call_opcodes
+    self.assertEqual(set(), opcodes)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: Items in the second set but not the first:
+'CALL_FUNCTION'
+'CALL_FUNCTION_KW'
+
+----------------------------------------------------------------------
+Ran 9 tests in 3.778s
+
+FAILED (failures=13, skipped=2)
+test test_dtrace failed
+1 test failed again:
+    test_dtrace
+
+== Tests result: FAILURE then FAILURE ==
+
+1 re-run test:
+    test_dtrace
+
+1 test failed:
+    test_dtrace
+
+Total tests: run=19 failures=26 skipped=4
+Total test files: run=2/1 failed=1 rerun=1
+Result: FAILURE then FAILURE

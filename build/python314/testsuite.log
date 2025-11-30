@@ -1,0 +1,613 @@
+== Tests result: FAILURE ==
+
+29 tests skipped:
+    test.test_asyncio.test_windows_events
+    test.test_asyncio.test_windows_utils test.test_gdb.test_backtrace
+    test.test_gdb.test_cfunction test.test_gdb.test_cfunction_full
+    test.test_gdb.test_misc test.test_gdb.test_pretty_print
+    test_android test_apple test_dbm_gnu test_epoll
+    test_free_threading test_idle test_kqueue test_launcher
+    test_msvcrt test_perf_profiler test_perfmaps test_remote_pdb
+    test_startfile test_tcl test_tkinter test_ttk test_ttk_textonly
+    test_turtle test_winapi test_winconsoleio test_winreg test_wmi
+
+6 tests skipped (resource denied):
+    test_smtpnet test_socketserver test_urllib2net test_urllibnet
+    test_winsound test_zipfile64
+
+8 tests failed:
+    test_dtrace test_email test_embed test_pdb test_posix test_pyrepl
+    test_socket test_threading
+
+448 tests OK.
+
+0:11:15 load avg: 0.00 Re-running 8 failed tests in verbose mode in subprocesses
+0:11:15 load avg: 0.00 Run 8 tests in parallel using 8 worker processes (timeout: 10 min, worker timeout: 15 min)
+0:11:15 load avg: 0.00 [1/8/1] test_dtrace failed (5 failures)
+Re-running test_dtrace in verbose mode (matching: test_check_probes, test_check_probes, test_check_probes, test_check_probes, test_check_probes)
+readelf version: 2.45
+test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) ... 
+  test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: import__find__load__done') ... FAIL
+  test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: import__find__load__start') ... FAIL
+  test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: audit') ... FAIL
+  test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: gc__start') ... FAIL
+  test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: gc__done') ... FAIL
+
+======================================================================
+FAIL: test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: import__find__load__done')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 241, in test_check_probes
+    self.assertIn(probe_name, readelf_output)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Name: import__find__load__done' not found in ''
+
+======================================================================
+FAIL: test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: import__find__load__start')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 241, in test_check_probes
+    self.assertIn(probe_name, readelf_output)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Name: import__find__load__start' not found in ''
+
+======================================================================
+FAIL: test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: audit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 241, in test_check_probes
+    self.assertIn(probe_name, readelf_output)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Name: audit' not found in ''
+
+======================================================================
+FAIL: test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: gc__start')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 241, in test_check_probes
+    self.assertIn(probe_name, readelf_output)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Name: gc__start' not found in ''
+
+======================================================================
+FAIL: test_check_probes (test.test_dtrace.CheckDtraceProbes.test_check_probes) (probe_name='Name: gc__done')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_dtrace.py", line 241, in test_check_probes
+    self.assertIn(probe_name, readelf_output)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Name: gc__done' not found in ''
+
+----------------------------------------------------------------------
+Ran 1 test in 0.028s
+
+FAILED (failures=5)
+test test_dtrace failed
+0:11:15 load avg: 0.00 [2/8/2] test_posix failed (4 errors)
+Re-running test_posix in verbose mode (matching: test_setscheduler_only_param, test_setscheduler_with_policy, test_setscheduler_only_param, test_setscheduler_with_policy)
+test_setscheduler_only_param (test.test_posix.TestPosixSpawn.test_setscheduler_only_param) ... ERROR
+test_setscheduler_with_policy (test.test_posix.TestPosixSpawn.test_setscheduler_with_policy) ... ERROR
+test_setscheduler_only_param (test.test_posix.TestPosixSpawnP.test_setscheduler_only_param) ... ERROR
+test_setscheduler_with_policy (test.test_posix.TestPosixSpawnP.test_setscheduler_with_policy) ... ERROR
+
+======================================================================
+ERROR: test_setscheduler_only_param (test.test_posix.TestPosixSpawn.test_setscheduler_only_param)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_posix.py", line 2021, in test_setscheduler_only_param
+    priority = os.sched_get_priority_min(policy)
+OSError: [Errno 0] Error
+
+======================================================================
+ERROR: test_setscheduler_with_policy (test.test_posix.TestPosixSpawn.test_setscheduler_with_policy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_posix.py", line 2041, in test_setscheduler_with_policy
+    priority = os.sched_get_priority_min(policy)
+OSError: [Errno 0] Error
+
+======================================================================
+ERROR: test_setscheduler_only_param (test.test_posix.TestPosixSpawnP.test_setscheduler_only_param)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_posix.py", line 2021, in test_setscheduler_only_param
+    priority = os.sched_get_priority_min(policy)
+OSError: [Errno 0] Error
+
+======================================================================
+ERROR: test_setscheduler_with_policy (test.test_posix.TestPosixSpawnP.test_setscheduler_with_policy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_posix.py", line 2041, in test_setscheduler_with_policy
+    priority = os.sched_get_priority_min(policy)
+OSError: [Errno 0] Error
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+FAILED (errors=4)
+test test_posix failed
+0:11:15 load avg: 0.00 [3/8/3] test_threading failed (9 failures)
+Re-running test_threading in verbose mode (matching: test_set_name, test_set_name, test_set_name, test_set_name, test_set_name, test_set_name, test_set_name, test_set_name, test_set_name)
+test_set_name (test.test_threading.MiscTestCase.test_set_name) ... 
+  test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='namé€', expected='namé€') ... FAIL
+  test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxé€', expected='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\udcc3') ... FAIL
+  test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\U0010ffff', expected='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\udcf4') ... FAIL
+  test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='xxxxxxxxxxxxxxxxxxxxxxxxxxxxx\U0010ffff\U0010ffff', expected='xxxxxxxxxxxxxxxxxxxxxxxxxxxxx\udcf4\udc8f') ... FAIL
+  test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='x🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍', expected='x🐍🐍🐍🐍🐍🐍🐍\udcf0\udc9f') ... FAIL
+  test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='xx🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍', expected='xx🐍🐍🐍🐍🐍🐍🐍\udcf0') ... FAIL
+  test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='xxx🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍', expected='xxx🐍🐍🐍🐍🐍🐍🐍') ... FAIL
+  test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='xxxx🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍', expected='xxxx🐍🐍🐍🐍🐍🐍\udcf0\udc9f\udc90') ... FAIL
+  test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='nonascii:æ', expected='nonascii:æ') ... FAIL
+
+======================================================================
+FAIL: test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='namé€', expected='namé€')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_threading.py", line 2312, in test_set_name
+    self.assertEqual(work_name, expected,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                     f"{len(work_name)=} and {len(expected)=}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '' != 'namé€'
++ namé€
+ : len(work_name)=0 and len(expected)=5
+
+======================================================================
+FAIL: test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxé€', expected='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\udcc3')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_threading.py", line 2312, in test_set_name
+    self.assertEqual(work_name, expected,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                     f"{len(work_name)=} and {len(expected)=}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '' != 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\udcc3'
++ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\udcc3
+ : len(work_name)=0 and len(expected)=31
+
+======================================================================
+FAIL: test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\U0010ffff', expected='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\udcf4')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_threading.py", line 2312, in test_set_name
+    self.assertEqual(work_name, expected,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                     f"{len(work_name)=} and {len(expected)=}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '' != 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\udcf4'
++ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\udcf4
+ : len(work_name)=0 and len(expected)=31
+
+======================================================================
+FAIL: test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='xxxxxxxxxxxxxxxxxxxxxxxxxxxxx\U0010ffff\U0010ffff', expected='xxxxxxxxxxxxxxxxxxxxxxxxxxxxx\udcf4\udc8f')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_threading.py", line 2312, in test_set_name
+    self.assertEqual(work_name, expected,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                     f"{len(work_name)=} and {len(expected)=}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '' != 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx\udcf4\udc8f'
++ xxxxxxxxxxxxxxxxxxxxxxxxxxxxx\udcf4\udc8f
+ : len(work_name)=0 and len(expected)=31
+
+======================================================================
+FAIL: test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='x🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍', expected='x🐍🐍🐍🐍🐍🐍🐍\udcf0\udc9f')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_threading.py", line 2312, in test_set_name
+    self.assertEqual(work_name, expected,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                     f"{len(work_name)=} and {len(expected)=}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '' != 'x🐍🐍🐍🐍🐍🐍🐍\udcf0\udc9f'
++ x🐍🐍🐍🐍🐍🐍🐍\udcf0\udc9f
+ : len(work_name)=0 and len(expected)=10
+
+======================================================================
+FAIL: test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='xx🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍', expected='xx🐍🐍🐍🐍🐍🐍🐍\udcf0')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_threading.py", line 2312, in test_set_name
+    self.assertEqual(work_name, expected,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                     f"{len(work_name)=} and {len(expected)=}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '' != 'xx🐍🐍🐍🐍🐍🐍🐍\udcf0'
++ xx🐍🐍🐍🐍🐍🐍🐍\udcf0
+ : len(work_name)=0 and len(expected)=10
+
+======================================================================
+FAIL: test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='xxx🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍', expected='xxx🐍🐍🐍🐍🐍🐍🐍')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_threading.py", line 2312, in test_set_name
+    self.assertEqual(work_name, expected,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                     f"{len(work_name)=} and {len(expected)=}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '' != 'xxx🐍🐍🐍🐍🐍🐍🐍'
++ xxx🐍🐍🐍🐍🐍🐍🐍
+ : len(work_name)=0 and len(expected)=10
+
+======================================================================
+FAIL: test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='xxxx🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍🐍', expected='xxxx🐍🐍🐍🐍🐍🐍\udcf0\udc9f\udc90')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_threading.py", line 2312, in test_set_name
+    self.assertEqual(work_name, expected,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                     f"{len(work_name)=} and {len(expected)=}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '' != 'xxxx🐍🐍🐍🐍🐍🐍\udcf0\udc9f\udc90'
++ xxxx🐍🐍🐍🐍🐍🐍\udcf0\udc9f\udc90
+ : len(work_name)=0 and len(expected)=13
+
+======================================================================
+FAIL: test_set_name (test.test_threading.MiscTestCase.test_set_name) (name='nonascii:æ', expected='nonascii:æ')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_threading.py", line 2312, in test_set_name
+    self.assertEqual(work_name, expected,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+                     f"{len(work_name)=} and {len(expected)=}")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '' != 'nonascii:æ'
++ nonascii:æ
+ : len(work_name)=0 and len(expected)=10
+
+----------------------------------------------------------------------
+Ran 1 test in 0.011s
+
+FAILED (failures=9)
+test test_threading failed
+0:11:15 load avg: 0.00 [4/8/4] test_pyrepl failed (2 failures)
+Re-running test_pyrepl in verbose mode (matching: test_no_fallback_on_regular_completion, test_no_fallback_on_regular_completion)
+test_no_fallback_on_regular_completion (test.test_pyrepl.test_pyrepl.TestPyReplModuleCompleter.test_no_fallback_on_regular_completion) ... 
+  test_no_fallback_on_regular_completion (test.test_pyrepl.test_pyrepl.TestPyReplModuleCompleter.test_no_fallback_on_regular_completion) (code='import pri\t\n') ... FAIL
+  test_no_fallback_on_regular_completion (test.test_pyrepl.test_pyrepl.TestPyReplModuleCompleter.test_no_fallback_on_regular_completion) (code='from pri\t\n') ... FAIL
+
+======================================================================
+FAIL: test_no_fallback_on_regular_completion (test.test_pyrepl.test_pyrepl.TestPyReplModuleCompleter.test_no_fallback_on_regular_completion) (code='import pri\t\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_pyrepl/test_pyrepl.py", line 1069, in test_no_fallback_on_regular_completion
+    self.assertEqual(output, expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: 'import privileges' != 'import pri'
+- import privileges
+?           -------
++ import pri
+
+
+======================================================================
+FAIL: test_no_fallback_on_regular_completion (test.test_pyrepl.test_pyrepl.TestPyReplModuleCompleter.test_no_fallback_on_regular_completion) (code='from pri\t\n')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_pyrepl/test_pyrepl.py", line 1069, in test_no_fallback_on_regular_completion
+    self.assertEqual(output, expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: 'from privileges' != 'from pri'
+- from privileges
++ from pri
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.025s
+
+FAILED (failures=2)
+test test_pyrepl failed
+0:11:15 load avg: 0.01 [5/8/5] test_email failed (uncaught exception)
+Re-running test_email in verbose mode (matching: )
+Failed to import test module: test.test_email.test_utils
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/unittest/loader.py", line 426, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/unittest/loader.py", line 367, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_email/test_utils.py", line 80, in <module>
+    class LocaltimeTests(unittest.TestCase):
+    ...<84 lines>...
+            self.assertEqual(t1.tzname(), 'EET')
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_email/test_utils.py", line 154, in LocaltimeTests
+    @unittest.skipIf(sys.platform.startswith("sunos"),
+                     ^^^
+NameError: name 'sys' is not defined. Did you forget to import 'sys'?
+
+test test_email crashed -- Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/single.py", line 210, in _runtest_env_changed_exc
+    _load_run_test(result, runtests)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/single.py", line 165, in _load_run_test
+    regrtest_runner(result, test_func, runtests)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/single.py", line 118, in regrtest_runner
+    test_result = test_func()
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/single.py", line 162, in test_func
+    return run_unittest(test_mod, runtests)
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/single.py", line 38, in run_unittest
+    raise Exception("errors while loading tests")
+Exception: errors while loading tests
+0:11:15 load avg: 0.01 [6/8/5] test_socket passed
+Re-running test_socket in verbose mode (matching: test_injected_authentication_failure)
+test_injected_authentication_failure (test.test_socket.PurePythonSocketPairTest.test_injected_authentication_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.017s
+
+OK
+0:11:16 load avg: 0.01 [7/8/6] test_embed failed (3 failures)
+Re-running test_embed in verbose mode (matching: test_init_use_frozen_modules, test_init_use_frozen_modules, test_init_use_frozen_modules)
+test_init_use_frozen_modules (test.test_embed.InitConfigTests.test_init_use_frozen_modules) ... --- ['/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Programs/_testembed', 'test_init_use_frozen_modules'] failed ---
+stdout:
+
+stderr:
+Fatal Python error: memory allocation failed
+Python runtime state: core initialized
+
+Current thread 0x0000000000000001 (most recent call first):
+  <no Python frame>
+
+------
+
+  test_init_use_frozen_modules (test.test_embed.InitConfigTests.test_init_use_frozen_modules) ['=off'] ... FAIL
+--- ['/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Programs/_testembed', 'test_init_use_frozen_modules'] failed ---
+stdout:
+
+stderr:
+Fatal Python error: memory allocation failed
+Python runtime state: core initialized
+
+Current thread 0x0000000000000001 (most recent call first):
+  <no Python frame>
+
+------
+  test_init_use_frozen_modules (test.test_embed.InitConfigTests.test_init_use_frozen_modules) ['=on'] ... FAIL
+--- ['/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Programs/_testembed', 'test_init_use_frozen_modules'] failed ---
+stdout:
+
+stderr:
+Fatal Python error: memory allocation failed
+Python runtime state: core initialized
+
+Current thread 0x0000000000000001 (most recent call first):
+  <no Python frame>
+
+------
+  test_init_use_frozen_modules (test.test_embed.InitConfigTests.test_init_use_frozen_modules) ['='] ... FAIL
+
+======================================================================
+FAIL: test_init_use_frozen_modules (test.test_embed.InitConfigTests.test_init_use_frozen_modules) ['=off']
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_embed.py", line 1827, in test_init_use_frozen_modules
+    self.check_all_configs("test_init_use_frozen_modules", config,
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           api=API_PYTHON, env=env)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_embed.py", line 941, in check_all_configs
+    out, err = self.run_embedded_interpreter(testname,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+                                             env=env, cwd=cwd)
+                                             ^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_embed.py", line 138, in run_embedded_interpreter
+    self.assertEqual(p.returncode, returncode,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     "bad returncode %d, stderr is %r" %
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (p.returncode, err))
+                     ^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : bad returncode 1, stderr is 'Fatal Python error: memory allocation failed\nPython runtime state: core initialized\n\nCurrent thread 0x0000000000000001 (most recent call first):\n  <no Python frame>\n'
+
+======================================================================
+FAIL: test_init_use_frozen_modules (test.test_embed.InitConfigTests.test_init_use_frozen_modules) ['=on']
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_embed.py", line 1827, in test_init_use_frozen_modules
+    self.check_all_configs("test_init_use_frozen_modules", config,
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           api=API_PYTHON, env=env)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_embed.py", line 941, in check_all_configs
+    out, err = self.run_embedded_interpreter(testname,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+                                             env=env, cwd=cwd)
+                                             ^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_embed.py", line 138, in run_embedded_interpreter
+    self.assertEqual(p.returncode, returncode,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     "bad returncode %d, stderr is %r" %
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (p.returncode, err))
+                     ^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : bad returncode 1, stderr is 'Fatal Python error: memory allocation failed\nPython runtime state: core initialized\n\nCurrent thread 0x0000000000000001 (most recent call first):\n  <no Python frame>\n'
+
+======================================================================
+FAIL: test_init_use_frozen_modules (test.test_embed.InitConfigTests.test_init_use_frozen_modules) ['=']
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_embed.py", line 1827, in test_init_use_frozen_modules
+    self.check_all_configs("test_init_use_frozen_modules", config,
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                           api=API_PYTHON, env=env)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_embed.py", line 941, in check_all_configs
+    out, err = self.run_embedded_interpreter(testname,
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+                                             env=env, cwd=cwd)
+                                             ^^^^^^^^^^^^^^^^^
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_embed.py", line 138, in run_embedded_interpreter
+    self.assertEqual(p.returncode, returncode,
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     "bad returncode %d, stderr is %r" %
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     (p.returncode, err))
+                     ^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : bad returncode 1, stderr is 'Fatal Python error: memory allocation failed\nPython runtime state: core initialized\n\nCurrent thread 0x0000000000000001 (most recent call first):\n  <no Python frame>\n'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.157s
+
+FAILED (failures=3)
+test test_embed failed
+0:11:46 load avg: 0.16 running (1): test_pdb (30.4 sec)
+0:12:16 load avg: 0.10 running (1): test_pdb (1 min)
+0:12:46 load avg: 0.06 running (1): test_pdb (1 min 30 sec)
+0:13:16 load avg: 0.04 running (1): test_pdb (2 min)
+0:13:46 load avg: 0.02 running (1): test_pdb (2 min 30 sec)
+0:14:16 load avg: 0.02 running (1): test_pdb (3 min)
+0:14:46 load avg: 0.01 running (1): test_pdb (3 min 30 sec)
+0:15:16 load avg: 0.01 running (1): test_pdb (4 min)
+0:15:46 load avg: 0.00 running (1): test_pdb (4 min 30 sec)
+0:16:16 load avg: 0.01 running (1): test_pdb (5 min)
+0:16:46 load avg: 0.00 running (1): test_pdb (5 min 30 sec)
+0:17:16 load avg: 0.00 running (1): test_pdb (6 min)
+0:17:46 load avg: 0.00 running (1): test_pdb (6 min 30 sec)
+0:18:16 load avg: 0.02 running (1): test_pdb (7 min)
+0:18:46 load avg: 0.02 running (1): test_pdb (7 min 30 sec)
+0:19:16 load avg: 0.01 running (1): test_pdb (8 min)
+0:19:46 load avg: 0.01 running (1): test_pdb (8 min 30 sec)
+0:20:16 load avg: 0.01 running (1): test_pdb (9 min)
+0:20:46 load avg: 0.00 running (1): test_pdb (9 min 30 sec)
+0:21:16 load avg: 0.00 [8/8/7] test_pdb worker non-zero exit code (Exit code 1)
+Re-running test_pdb in verbose mode (matching: )
+test_checkline_after_reset (test.test_pdb.ChecklineTests.test_checkline_after_reset) ... ok
+test_checkline_before_debugging (test.test_pdb.ChecklineTests.test_checkline_before_debugging) ... ok
+test_checkline_is_not_executable (test.test_pdb.ChecklineTests.test_checkline_is_not_executable) ... ok
+test_blocks_at_first_code_line (test.test_pdb.PdbTestCase.test_blocks_at_first_code_line) ... ok
+test_breakpoint (test.test_pdb.PdbTestCase.test_breakpoint) ... ok
+test_dir_as_script (test.test_pdb.PdbTestCase.test_dir_as_script) ... ok
+test_empty_file (test.test_pdb.PdbTestCase.test_empty_file) ... ok
+test_errors_in_command (test.test_pdb.PdbTestCase.test_errors_in_command) ... ok
+test_file_modified_after_execution (test.test_pdb.PdbTestCase.test_file_modified_after_execution) ... ok
+test_file_modified_after_execution_with_multiple_instances (test.test_pdb.PdbTestCase.test_file_modified_after_execution_with_multiple_instances) ... ok
+test_file_modified_after_execution_with_restart (test.test_pdb.PdbTestCase.test_file_modified_after_execution_with_restart) ... ok
+test_file_modified_and_immediately_restarted (test.test_pdb.PdbTestCase.test_file_modified_and_immediately_restarted) ... ok
+test_find_function_empty_file (test.test_pdb.PdbTestCase.test_find_function_empty_file) ... ok
+test_find_function_first_executable_line (test.test_pdb.PdbTestCase.test_find_function_first_executable_line) ... ok
+test_find_function_found (test.test_pdb.PdbTestCase.test_find_function_found) ... ok
+test_find_function_found_with_bom (test.test_pdb.PdbTestCase.test_find_function_found_with_bom) ... ok
+test_find_function_found_with_encoding_cookie (test.test_pdb.PdbTestCase.test_find_function_found_with_encoding_cookie) ... ok
+test_gh_93696_frozen_list (test.test_pdb.PdbTestCase.test_gh_93696_frozen_list) ... ok
+test_gh_94215_crash (test.test_pdb.PdbTestCase.test_gh_94215_crash) ... ok
+test_header (test.test_pdb.PdbTestCase.test_header) ... ok
+test_invalid_cmd_line_options (test.test_pdb.PdbTestCase.test_invalid_cmd_line_options) ... ok
+test_issue13120 (test.test_pdb.PdbTestCase.test_issue13120) ... ok
+test_issue13183 (test.test_pdb.PdbTestCase.test_issue13183) ... ok
+test_issue16180 (test.test_pdb.PdbTestCase.test_issue16180) ... ok
+test_issue26053 (test.test_pdb.PdbTestCase.test_issue26053) ... ok
+test_issue34266 (test.test_pdb.PdbTestCase.test_issue34266)
+do_run handles exceptions from parsing its arg ... ok
+test_issue36250 (test.test_pdb.PdbTestCase.test_issue36250) ... ok
+test_issue42383 (test.test_pdb.PdbTestCase.test_issue42383) ... ok
+test_issue42384 (test.test_pdb.PdbTestCase.test_issue42384)
+When running `python foo.py` sys.path[0] is an absolute path. `python -m pdb foo.py` should behave the same ... ok
+test_issue42384_symlink (test.test_pdb.PdbTestCase.test_issue42384_symlink)
+When running `python foo.py` sys.path[0] resolves symlinks. `python -m pdb foo.py` should behave the same ... ok
+test_issue46434 (test.test_pdb.PdbTestCase.test_issue46434) ... ok
+test_issue58956 (test.test_pdb.PdbTestCase.test_issue58956) ... ok
+test_issue7964 (test.test_pdb.PdbTestCase.test_issue7964) ... ok
+test_issue84583 (test.test_pdb.PdbTestCase.test_issue84583) ... ok
+test_module_is_run_as_main (test.test_pdb.PdbTestCase.test_module_is_run_as_main) ... ok
+test_module_without_a_main (test.test_pdb.PdbTestCase.test_module_without_a_main) ... ok
+test_non_utf8_encoding (test.test_pdb.PdbTestCase.test_non_utf8_encoding) ... ok
+test_nonexistent_module (test.test_pdb.PdbTestCase.test_nonexistent_module) ... ok
+test_package_without_a_main (test.test_pdb.PdbTestCase.test_package_without_a_main) ... ok
+test_pdbrc_alias (test.test_pdb.PdbTestCase.test_pdbrc_alias) ... ok
+test_pdbrc_basic (test.test_pdb.PdbTestCase.test_pdbrc_basic) ... ok
+test_pdbrc_commands (test.test_pdb.PdbTestCase.test_pdbrc_commands) ... ok
+test_pdbrc_empty_line (test.test_pdb.PdbTestCase.test_pdbrc_empty_line)
+Test that empty lines in .pdbrc are ignored. ... ok
+test_pdbrc_semicolon (test.test_pdb.PdbTestCase.test_pdbrc_semicolon) ... ok
+test_post_mortem_restart (test.test_pdb.PdbTestCase.test_post_mortem_restart) ... ok
+test_readrc_homedir (test.test_pdb.PdbTestCase.test_readrc_homedir) ... ok
+test_readrc_kwarg (test.test_pdb.PdbTestCase.test_readrc_kwarg) ... ok
+test_relative_imports (test.test_pdb.PdbTestCase.test_relative_imports) ... ok
+test_relative_imports_on_plain_module (test.test_pdb.PdbTestCase.test_relative_imports_on_plain_module) ... ok
+test_run_module (test.test_pdb.PdbTestCase.test_run_module) ... ok
+test_run_module_with_args (test.test_pdb.PdbTestCase.test_run_module_with_args) ... ok
+test_run_pdb_with_pdb (test.test_pdb.PdbTestCase.test_run_pdb_with_pdb) ... ok
+test_run_script_with_args (test.test_pdb.PdbTestCase.test_run_script_with_args) ... ok
+test_safe_path (test.test_pdb.PdbTestCase.test_safe_path)
+With safe_path set, pdb should not mangle sys.path[0] ... ok
+test_spec (test.test_pdb.PdbTestCase.test_spec) ... ok
+test_step_into_botframe (test.test_pdb.PdbTestCase.test_step_into_botframe) ... ok
+test_zipapp (test.test_pdb.PdbTestCase.test_zipapp) ... ok
+test_zipimport (test.test_pdb.PdbTestCase.test_zipimport) ... ok
+test_code_display (test.test_pdb.PdbTestColorize.test_code_display) ... ok
+test_stack_entry (test.test_pdb.PdbTestColorize.test_stack_entry) ... ok
+test_quit (test.test_pdb.PdbTestInline.test_quit) ... ok
+test_quit_after_interact (test.test_pdb.PdbTestInline.test_quit_after_interact)
+interact command will set sys.ps1 temporarily, we need to make sure ... ok
+test_set_trace_with_skip (test.test_pdb.PdbTestInline.test_set_trace_with_skip)
+GH-82897 ... ok
+test_basic_completion (test.test_pdb.PdbTestReadline.test_basic_completion) ... ok
+test_builtin_completion (test.test_pdb.PdbTestReadline.test_builtin_completion) ... ok
+test_convvar_completion (test.test_pdb.PdbTestReadline.test_convvar_completion) ... ok
+test_expression_completion (test.test_pdb.PdbTestReadline.test_expression_completion) ... ok
+test_interact_completion (test.test_pdb.PdbTestReadline.test_interact_completion) ... ok
+test_local_namespace (test.test_pdb.PdbTestReadline.test_local_namespace) ... ok
+test_multiline_auto_indent (test.test_pdb.PdbTestReadline.test_multiline_auto_indent) ... FAIL
+test_multiline_completion (test.test_pdb.PdbTestReadline.test_multiline_completion) ... ok
+test_multiline_indent_completion (test.test_pdb.PdbTestReadline.test_multiline_indent_completion) ... Timeout (0:10:00)!
+Thread 0x0000000000000001 (most recent call first):
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/selectors.py", line 314 in select
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/support/pty_helper.py", line 39 in run_pty
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/test_pdb.py", line 4917 in test_multiline_indent_completion
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/unittest/case.py", line 615 in _callTestMethod
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/unittest/case.py", line 669 in run
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/unittest/case.py", line 725 in __call__
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/unittest/suite.py", line 122 in run
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/unittest/suite.py", line 84 in __call__
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/unittest/suite.py", line 122 in run
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/unittest/suite.py", line 84 in __call__
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/unittest/runner.py", line 257 in run
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/single.py", line 84 in _run_suite
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/single.py", line 42 in run_unittest
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/single.py", line 162 in test_func
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/single.py", line 118 in regrtest_runner
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/single.py", line 165 in _load_run_test
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/single.py", line 210 in _runtest_env_changed_exc
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/single.py", line 319 in _runtest
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/single.py", line 348 in run_single_test
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/worker.py", line 93 in worker_process
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/worker.py", line 128 in main
+  File "/data/omnios-build/omniosorg/bloody/_build/Python-3.14.0/Python-3.14.0/Lib/test/libregrtest/worker.py", line 132 in <module>
+  File "<frozen runpy>", line 88 in _run_code
+  File "<frozen runpy>", line 198 in _run_module_as_main
+7 tests failed again:
+    test_dtrace test_email test_embed test_pdb test_posix test_pyrepl
+    test_threading
+
+== Tests result: FAILURE then FAILURE ==
+
+29 tests skipped:
+    test.test_asyncio.test_windows_events
+    test.test_asyncio.test_windows_utils test.test_gdb.test_backtrace
+    test.test_gdb.test_cfunction test.test_gdb.test_cfunction_full
+    test.test_gdb.test_misc test.test_gdb.test_pretty_print
+    test_android test_apple test_dbm_gnu test_epoll
+    test_free_threading test_idle test_kqueue test_launcher
+    test_msvcrt test_perf_profiler test_perfmaps test_remote_pdb
+    test_startfile test_tcl test_tkinter test_ttk test_ttk_textonly
+    test_turtle test_winapi test_winconsoleio test_winreg test_wmi
+
+6 tests skipped (resource denied):
+    test_smtpnet test_socketserver test_urllib2net test_urllibnet
+    test_winsound test_zipfile64
+
+8 re-run tests:
+    test_dtrace test_email test_embed test_pdb test_posix test_pyrepl
+    test_socket test_threading
+
+7 tests failed:
+    test_dtrace test_email test_embed test_pdb test_posix test_pyrepl
+    test_threading
+
+449 tests OK.
+
+Total tests: run=44,449 (filtered) failures=39 skipped=2,061
+Total test files: run=493/491 (filtered) failed=7 skipped=29 resource_denied=6 rerun=8
+Result: FAILURE then FAILURE
