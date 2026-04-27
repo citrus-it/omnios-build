@@ -4,6 +4,18 @@
 
 # Release Notes for OmniOSce v11 r151056
 
+## r151056z (2026-04-27)
+Weekly release for w/c 27th of April 2026.
+> This is a non-reboot update
+
+### Security Fixes
+
+### Other Changes
+
+<br>
+
+---
+
 ## r151056t (2026-03-16)
 Weekly release for w/c 16th of March 2026.
 > This update requires a reboot
