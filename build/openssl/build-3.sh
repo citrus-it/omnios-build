@@ -94,7 +94,7 @@ configure_arch() {
         DSO_LDFLAGS=\"${LDFLAGS[$arch]} ${LDFLAGS[base]}\"
     "
 
-    $PERL configdata.pm --dump > $SRCDIR/config-$arch.log
+    $PERL configdata.pm --dump > $SRCDIR/config-$MAJVER-$arch.log
 }
 
 # Preserve the opensslconf.h file from each build since there will be
