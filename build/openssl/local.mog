@@ -74,12 +74,12 @@ $(i386_ONLY)<transform file path=usr/ssl-([^/]+)/lib/amd64/pkgconfig/(.*) \
 
 # .. and add mediated links
 <transform file path=usr/ssl-([^/]+)/lib/cmake/(.*) -> emit \
-    link path=usr/lib/cmake/%<2> target=../../../%(path) \
+    link path=usr/lib/cmake/%<2> target=../../../../%(path) \
     mediator=openssl mediator-version=%<1> >
 
 $(i386_ONLY)<transform file path=usr/ssl-([^/]+)/lib/amd64/cmake/(.*) \
     -> emit \
-    link path=usr/lib/amd64/cmake/%<2> target=../../../../%(path) \
+    link path=usr/lib/amd64/cmake/%<2> target=../../../../../%(path) \
     mediator=openssl mediator-version=%<1> >
 
 # Move the include files

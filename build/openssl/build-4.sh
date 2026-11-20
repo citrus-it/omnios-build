@@ -81,6 +81,7 @@ build_init() {
 
 configure_arch() {
     typeset arch=${1:?arch}
+    typeset modulesdir=$PREFIX/ssl-$MAJVER/${LIBDIRS[$arch]}/ossl-modules
 
     SSLPLAT=${OPENSSL_PLATFORM[$arch]}
     logmsg -n "--- Configure $arch ($SSLPLAT)"
@@ -92,7 +93,9 @@ configure_arch() {
         SHARED_LDFLAGS=\"${LDFLAGS[$arch]} ${LDFLAGS[base]}\"
         LIB_LDFLAGS=\"${LDFLAGS[$arch]} ${LDFLAGS[base]}\"
         DSO_LDFLAGS=\"${LDFLAGS[$arch]} ${LDFLAGS[base]}\"
+        MODULESDIR_RUNTIME=$modulesdir
     "
+    MAKE_INSTALL_ARGS_WS="MODULESDIR_RUNTIME=$modulesdir"
 
     $PERL configdata.pm --dump > $SRCDIR/config-$MAJVER-$arch.log
 }
