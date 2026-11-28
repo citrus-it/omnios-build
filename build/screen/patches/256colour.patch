@@ -15,9 +15,10 @@ EOF
 export TERM=xterm-256color
 bash test.sh
 
---- screen-5.0.1/display.c
-+++ screen-5.0.1/display.c
-@@ -1341,8 +1341,7 @@ if (f > 15 && D_CCO != 256) {
+diff -wpruN --no-dereference '--exclude=*.orig' a~/display.c a/display.c
+--- a~/display.c	1970-01-01 00:00:00
++++ a/display.c	1970-01-01 00:00:00
+@@ -1341,8 +1341,7 @@ void SetColor(uint32_t foreground, uint3
  			f = D_CCO == 88 && D_CAF ? color256to88(f) : color256to16(f);
  		}
  		if (D_CAF) {
@@ -27,7 +28,7 @@ bash test.sh
  		}
  		
  	}
-@@ -1379,8 +1378,7 @@ if (b > 15 && D_CCO != 256) {
+@@ -1379,8 +1378,7 @@ void SetColor(uint32_t foreground, uint3
  			b = D_CCO == 88 && D_CAB ? color256to88(b) : color256to16(b);
  		}
  		if (D_CAB) {

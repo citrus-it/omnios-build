@@ -78,7 +78,7 @@ diff -wpruN --no-dereference '--exclude=*.orig' a~/window.c a/window.c
  
  #include "fileio.h"
  #include "help.h"
-@@ -1031,6 +1034,25 @@ static int ForkWindow(Window *win, char
+@@ -1036,6 +1039,25 @@ static int ForkWindow(Window *win, char
  			Msg(errno, "ttyn");
  			return -1;
  		}

@@ -15,9 +15,10 @@ screen
 <ctrl>-d
 # it waits for cca 10s before it exits
 
---- screen-5.0.1/window.c
-+++ screen-5.0.1/window.c
-@@ -1505,7 +1505,7 @@ WriteString(p, p->w_outbuf, len);
+diff -wpruN --no-dereference '--exclude=*.orig' a~/window.c a/window.c
+--- a~/window.c	1970-01-01 00:00:00
++++ a/window.c	1970-01-01 00:00:00
+@@ -1532,7 +1532,7 @@ static void win_readev_fn(Event *event,
  		return;
  	}
  
@@ -26,7 +27,7 @@ screen
  		if (errno == EINTR || errno == EAGAIN)
  			return;
  #if defined(EWOULDBLOCK) && (EWOULDBLOCK != EAGAIN)
-@@ -1527,6 +1527,10 @@ bp++;
+@@ -1554,6 +1554,10 @@ static void win_readev_fn(Event *event,
  		len--;
  	}
  #endif

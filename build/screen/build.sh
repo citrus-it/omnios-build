@@ -18,7 +18,7 @@
 . ../../lib/build.sh
 
 PROG=screen
-VER=5.0.2
+VER=5.0.3
 PKG=terminal/screen
 SUMMARY="GNU Screen terminal multiplexer"
 DESC="A full-screen window manager that multiplexes a physical "
