@@ -18,7 +18,7 @@
 . ../../lib/build.sh
 
 PROG=libffi
-VER=3.8.1
+VER=3.8.2
 PKG=library/libffi
 SUMMARY="A Portable Foreign Function Interface Library"
 DESC="$PROG - $SUMMARY"
