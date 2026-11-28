@@ -140,7 +140,7 @@
 | library/python-3/jsonschema-specifications-315| 2025.9.1	| https://pypi.org/rss/project/jsonschema-specifications/releases.xml
 | library/python-3/maturin-315		| 1.16.0		| https://pypi.org/rss/project/maturin/releases.xml
 | library/python-3/meson-315		| 1.12.1		| https://github.com/mesonbuild/meson/releases https://mesonbuild.com/
-| library/python-3/packaging-315	| 26.3			| https://pypi.org/rss/project/packaging/releases.xml
+| library/python-3/packaging-315	| 26.4			| https://pypi.org/rss/project/packaging/releases.xml
 | library/python-3/pip-315		| 26.3			| https://pypi.org/rss/project/pip/releases.xml
 | library/python-3/pycodestyle-315	| 2.15.0		| https://pypi.org/rss/project/pycodestyle/releases.xml
 | library/python-3/pycparser-315	| 3.12			| https://pypi.org/rss/project/pycparser/releases.xml
