@@ -18,7 +18,7 @@
 . ../../lib/build.sh
 
 PROG=libpcap
-VER=1.11.0
+VER=1.11.1
 PKG=system/library/pcap
 SUMMARY="libpcap - a packet capture library"
 DESC="$SUMMARY"
