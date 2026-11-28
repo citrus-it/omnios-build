@@ -117,7 +117,7 @@ gio - glib:unix-mounts                                                 ERROR   k
 gio - glib:unix-streams                                                OK   5 subtests passed
 gio - glib:vfs                                                         OK   3 subtests passed
 gio - glib:volumemonitor                                               OK   3 subtests passed
-gio - glib:win32-appinfo                                               OK   5 subtests passed
+gio - glib:win32-appinfo                                               OK   10 subtests passed
 gio+cpp - glib:cxx                                                     OK
 gio+cpp - glib:cxx-03                                                  OK
 gio+cpp - glib:cxx-11                                                  OK
@@ -181,7 +181,7 @@ glib+core - glib:io-channel                                            OK   4 su
 glib+core - glib:io-channel-basic                                      OK   1 subtests passed
 glib+core - glib:keyfile                                               OK   38 subtests passed
 glib+core - glib:list                                                  OK   20 subtests passed
-glib+core - glib:logging                                               TIMEOUT   killed by signal 15 SIGTERM
+glib+core - glib:logging                                               OK   21 subtests passed
 glib+core - glib:macros                                                OK   3 subtests passed
 glib+core - glib:mainloop                                              OK   49 subtests passed
 glib+core - glib:mappedfile                                            OK   7 subtests passed
@@ -216,7 +216,7 @@ glib+core - glib:rec-mutex                                             OK   29 s
 glib+core - glib:refcount                                              OK   4 subtests passed
 glib+core - glib:refcount-macro                                        OK   4 subtests passed
 glib+core - glib:refstring                                             OK   8 subtests passed
-glib+core - glib:regex                                                 OK   857 subtests passed
+glib+core - glib:regex                                                 OK   878 subtests passed
 glib+core - glib:relation                                              OK   1 subtests passed
 glib+core - glib:rwlock                                                OK   8 subtests passed
 glib+core - glib:scannerapi                                            OK   8 subtests passed
@@ -250,7 +250,7 @@ glib+core - glib:uri                                                   OK   24 s
 glib+core - glib:utf8-misc                                             OK   7 subtests passed
 glib+core - glib:utf8-performance                                      OK   36 subtests passed
 glib+core - glib:utf8-pointer                                          OK   3 subtests passed
-glib+core - glib:utf8-private                                          OK   2 subtests passed
+glib+core - glib:utf8-private                                          OK   3 subtests passed
 glib+core - glib:utf8-validate                                         OK   238 subtests passed
 glib+core - glib:utils                                                 OK   41 subtests passed
 glib+core - glib:utils-isolated                                        OK   11 subtests passed
@@ -388,10 +388,8 @@ gio - glib:unix-mounts                                                 ERROR   k
 gio - glib:gsettings                                                   ERROR   killed by signal 6 SIGABRT
 gio - glib:appmonitor                                                  ERROR   killed by signal 6 SIGABRT
 gio+slow - glib:testfilemonitor                                        ERROR   killed by signal 6 SIGABRT
-glib+core - glib:logging                                               TIMEOUT   killed by signal 15 SIGTERM
 
-Ok:                354 
+Ok:                355 
 Fail:              11  
 Skipped:           10  
-Timeout:           1   
 
